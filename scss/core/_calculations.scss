@@ -1,0 +1,22 @@
+// ----- add rem to font sizes
+$font-size-small: $_font-size-small * 0.1rem;
+$font-size-main:  $_font-size-main * 0.1rem;
+$font-size-large: $_font-size-main * 0.1rem;
+
+$font-size-h1: $_font-size-h1 * 0.1rem;
+$font-size-h2: $_font-size-h2 * 0.1rem;
+$font-size-h3: $_font-size-h3 * 0.1rem;
+$font-size-h4: $_font-size-h4 * 0.1rem;
+$font-size-h5: $_font-size-h5 * 0.1rem;
+$font-size-h6: $_font-size-h6 * 0.1rem;
+
+// ----- add rem to generic sizes
+$size-micro: $_size-micro * 0.1rem;
+$size-mini: $_size-mini * 0.1rem;
+$size-tiny: $_size-tiny * 0.1rem;
+$size-small: $_size-small * 0.1rem;
+$size-medium: $_size-medium * 0.1rem;
+$size-large: $_size-large * 0.1rem;
+$size-big: $_size-big * 0.1rem;
+$size-huge: $_size-huge * 0.1rem;
+$size-massive: $_size-massive * 0.1rem;

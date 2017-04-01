@@ -1,0 +1,192 @@
+//
+// Normalization of Generic Elements
+//
+
+body {
+	@extend %font-body;
+	background-color: $background-primary;
+	color: $text-primary;
+	font-size: 16px; // calculate font sizes
+	font-size: 1.6rem; // calculate font sizes
+	line-height: 1.2; // calculate line heights
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+	background-color: $color-primary;
+	color: $text-primary;
+}
+
+a {
+	color: $link-color;
+	text-decoration: none;
+	transition: color $transition-time $transition-type;
+
+	&:hover {
+		color: $link-hover-color;
+	}
+}
+
+p, ul, ol, dl {
+	margin-bottom: 13px; // calculate margin sizes
+	margin-bottom: 1.3rem; // calculate margin sizes
+}
+
+strong, b {
+	@extend %font-bold;
+}
+
+em {
+	@extend %font-italic;
+	font-weight: 700;
+}
+
+u {
+	text-decoration: underline;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+div {
+	box-sizing: border-box;
+}
+
+dl {
+	dt {
+		@extend %font-bold;
+	}
+	dd {
+		margin-left: 13px; // calculate margin sizes
+		margin-left: 1.3rem; // calculate margin sizes
+	}
+}
+
+li {
+	margin-left: 13px; // calculate margin sizes
+	margin-left: 1.3rem; // calculate margin sizes
+}
+
+blockquote {
+	margin: 21px 34px; // caluclate margin sizes
+	margin: 2.1rem 3.4rem; // caluclate margin sizes
+	padding-left: 5px; // calculate padding sizes
+	position: relative;
+	&:before {
+		content: "\201C";
+		display: inline-block;
+		font-size: 44px; // calculate font sizes
+		font-size: 4.4rem; // calculate font sizes
+		line-height: 1;
+		position: absolute;
+		right: 100%;
+		top: 0;
+	}
+	cite {
+		display: block;
+		text-align: right;
+	}
+}
+
+pre {
+	background-color: $background-secondary;
+	color: $text-secondary;
+	font-family: monospace;
+	margin: 13px 21px; // calculate margin sizes
+	margin: 1.3rem 2.1rem; // calculate margin sizes
+	max-width: 100%;
+	padding: 13px; // calculate padding sizes
+	padding: 1.3rem; // calculate padding sizes
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+address {
+	white-space: pre-wrap;
+	br {
+		display: none; // counteract WP adding <br>'s to addresses.
+	}
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	@extend %font-heading;
+	line-height: 1.625; // calculate line heights
+	margin-bottom: 13px; // calculate margin sizes
+	margin-bottom: 1.3rem; // calculate margin sizes
+
+	&.inline {
+		line-height: 1.625;
+		margin-bottom: 0;
+	}
+}
+h1, .h1-size {
+	font-size: 44px; // calculate font sizes
+	font-size: 4.4rem; // calculate font sizes
+}
+h2, .h2-size {
+	font-size: 30px; // calculate font sizes
+	font-size: 3rem; // calculate font sizes
+}
+h3, .h3-size {
+	font-size: 24px; // calculate font sizes
+	font-size: 2.4rem; // calculate font sizes
+}
+h4, .h4-size {
+	font-size: 20px; // calculate font sizes
+	font-size: 2rem; // calculate font sizes
+}
+h5, .h5-size {
+	font-size: 18px; // calculate font sizes
+	font-size: 1.8rem; // calculate font sizes
+}
+h6, .h6-size {
+	font-size: 16px; // calculate font sizes
+	font-size: 1.6rem; // calculate font sizes
+}
+
+// Replicate some or all of the headline styles through classes
+.h1 { @extend h1; }
+.h2 { @extend h2; }
+.h3 { @extend h3; }
+.h4 { @extend h4; }
+.h5 { @extend h5; }
+.h6 { @extend h6; }
+
+small {
+	font-size: 0.75em;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	line-height: 1;
+	width: 100%;
+}
+th, td {
+	text-align: left;
+	padding: 13px; // calculate padding sizes
+	padding: 1.3rem; // calculate padding sizes
+}
+thead, tfoot, th {
+	@extend %font-bold;
+}
+thead {
+	border-bottom: solid 1px $text-primary;
+}
+tfoot {
+	border-top: solid 1px $text-primary;
+}
+
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid $color-muted;
+	margin: 1em 0;
+	padding: 0; // calculate padding sizes
+}

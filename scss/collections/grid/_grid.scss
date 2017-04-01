@@ -1,0 +1,187 @@
+/**************************************************************************
+Super Smooth Grid
+Author: S. Thrall
+Created 2015/07/19
+Last Revision 2015/01/31
+
+Change Log:
+2016/01/31
+	* Moved the responsive calculations to their own file
+2015/07/19
+	* Created base column and responsive calculations
+
+**************************************************************************/
+
+// =============================================
+// =====	Grid Calculations
+// =============================================
+@mixin column_init($count) {
+	$width: 100% / $count;
+
+	> * {
+		flex-basis: $width;
+		width: $width;
+	}
+
+	// no-flexbox fallbacks
+	@at-root {
+		.no-flexbox & {
+			overflow: hidden; // clear children
+			> * {
+				float: left;
+			}
+		}
+	}
+}
+
+@mixin guttered_column_init($count, $gutter: 1.3rem) {
+	$width: (100% / $count);
+	$gutter: $gutter;
+	$adjustment: (($count - 1) * $gutter) / $count;
+
+	> * {
+		flex-basis: calc(#{$width} - #{$adjustment});
+		width: calc(#{$width} - #{$adjustment});
+		margin-right: $gutter;
+		margin-bottom: $gutter;
+
+		&:nth-of-type(#{$count}n) {
+			margin-right: 0;
+		}
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+
+	@include at_tablet {
+		$columns: round($count / 2);
+		$width: (100% / $columns);
+		$gutter: $size-small;
+		$adjustment: (($columns - 1) * $gutter) / $columns;
+
+		> * {
+			flex-basis: calc(#{$width} - #{$adjustment});
+			width: calc(#{$width} - #{$adjustment});
+			width: $width;
+			margin-right: $gutter;
+
+			&:nth-of-type(#{$count}n) {
+				margin-right: $gutter;
+			}
+
+			&:nth-of-type(#{$columns}n) {
+				margin-right: 0;
+			}
+		}
+	}
+
+	@include at_mobile {
+		$width: 100%;
+
+		> * {
+			flex-basis: $width;
+			width: $width;
+			margin-right: 0;
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// no-flexbox fallbacks
+	@at-root {
+		.no-flexbox & {
+			overflow: hidden; // clear children
+			> * {
+				float: left;
+			}
+		}
+	}
+}
+
+// initialize the flexbox grid
+.ss.grid {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+}
+
+// initialize columns based on count
+.ss.grid {
+	&, &.one.column   { @include column_init(1);  }
+	&.two.column 	  { @include column_init(2);  }
+	&.three.column    { @include column_init(3);  }
+	&.four.column 	  { @include column_init(4);  }
+	&.five.column 	  { @include column_init(5);  }
+	&.six.column 	  { @include column_init(6);  }
+	&.seven.column    { @include column_init(7);  }
+	&.eight.column    { @include column_init(8);  }
+	&.nine.column	  { @include column_init(9);  }
+	&.ten.column 	  { @include column_init(10); }
+	&.eleven.column   { @include column_init(11); }
+	&.twelve.column   { @include column_init(12); }
+	&.thirteen.column { @include column_init(13); }
+	&.fourteen.column { @include column_init(14); }
+	&.fifteen.column  { @include column_init(15); }
+	&.sixteen.column  { @include column_init(16); }
+}
+
+// initialize guttered columns based on count
+.ss.guttered.grid {
+	&, &.one.column   { @include guttered_column_init(1);  }
+	&.two.column 	  { @include guttered_column_init(2);  }
+	&.three.column    { @include guttered_column_init(3);  }
+	&.four.column 	  { @include guttered_column_init(4);  }
+	&.five.column 	  { @include guttered_column_init(5);  }
+	&.six.column 	  { @include guttered_column_init(6);  }
+	&.seven.column    { @include guttered_column_init(7);  }
+	&.eight.column    { @include guttered_column_init(8);  }
+	&.nine.column	  { @include guttered_column_init(9);  }
+	&.ten.column 	  { @include guttered_column_init(10); }
+	&.eleven.column   { @include guttered_column_init(11); }
+	&.twelve.column   { @include guttered_column_init(12); }
+	&.thirteen.column { @include guttered_column_init(13); }
+	&.fourteen.column { @include guttered_column_init(14); }
+	&.fifteen.column  { @include guttered_column_init(15); }
+	&.sixteen.column  { @include guttered_column_init(16); }
+}
+
+// calculate defined column widths
+// ...
+
+// provide container variations
+.ss.grid {
+	// flex wrap
+	&.nowrap {
+		flex-wrap: nowrap;
+	}
+	&.reversed {
+		flex-wrap: wrap-reverse;
+	}
+
+	// justify content
+	&.horizontally.centered {
+		justify-content: center;
+	}
+	&.between {
+		justify-content: space-between;
+	}
+
+	// align items
+	&.vertically.centered {
+		align-items: center;
+	}
+	&.baseline {
+		align-items: baseline;
+	}
+}
+
+// no flexbox fallback
+.no-flexbox .ss.grid {
+	overflow: hidden;
+
+	// float the elements instead
+	> * { float: left; }
+}

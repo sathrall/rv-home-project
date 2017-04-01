@@ -1,0 +1,23 @@
+// Percentage based contain
+%padding-left {
+	padding-left: 8%;
+	@include at_width(0) {
+		padding-left: 15%;
+	}
+	@include at_device {
+		padding-left: 5%;
+	}
+}
+%padding-right {
+	padding-right: 8%;
+	@include at_width(0) {
+		padding-right: 15%;
+	}
+	@include at_device {
+		padding-right: 5%;
+	}
+}
+.contain {
+	@extend %padding-left;
+	@extend %padding-right;
+}

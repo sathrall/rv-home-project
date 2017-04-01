@@ -1,0 +1,12 @@
+/**
+ *  Full-Height Sections
+ */
+
+%full-height-section {
+	min-height: 100vh;
+	overflow-y: auto;
+}
+
+.full-height.section {
+	@extend %full-height-section;
+}

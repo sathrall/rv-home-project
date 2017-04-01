@@ -1,0 +1,17 @@
+/**
+ *  Simple Tile Variation
+ *	Author: Scott Thrall
+ *	Created March 2016
+ *  Last Revision: N/A
+ */
+
+.square.panels > .panel,
+.square.panel {
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		padding-top: 100%;
+	}
+}

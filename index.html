@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project Template</title>
+
+	<meta name="charset" content="UTF-8">
+	<meta name="author" content="sathrall">
+
+	<script type="text/javascript" src="js/scripts.min.js"></script>
+
+	<link rel="stylesheet" href="css/font-awesome.css"/>
+	<link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+	<header>
+		<!--  -->
+	</header>
+
+	<div class="content" role="main">
+
+		<div class="full-height video hero section" style="background-image:url('/images/20150907_140835.jpg');">
+			<div class="video-wrapper">
+				<video autoplay muted loop poster="http://placehold.it/1800x600">
+					<source src="https://embedwistia-a.akamaihd.net/deliveries/a5fbcec023d6f52fcb477753fc78edc793969ea8/file.mp4" type="video/mp4">
+				</video>
+			</div>
+			<div class="inner">
+				<button data-modal="show" class="primary">Show Quote</button>
+			</div>
+		</div>
+
+		<div class="modal" id="quote">
+			<div class="click-trap"></div>
+			<button class="close" data-modal="hide"><i class="fa fa-times"></i></button>
+			<div class="inner">
+				<div class="likes">
+					<button data-likes="count" id="like" class="light"><i class="fa fa-heart"></i> <span id="js-likes"></span></button>
+				</div>
+				<div class="content">
+					<div class="image">
+						<img class="tall" src="/images/sheldon.png" alt="Image of Sheldon Cooper">
+						<img class="long" src="/images/sheldon-long.jpg" alt="Image of Sheldon Cooper">
+						<div class="controls">
+							<div class="prev">
+								<button id="prev" class="slide"><i class="fa fa-angle-left"></i></button>
+							</div>
+							<div class="next">
+								<button id="next" class="slide"><i class="fa fa-angle-right"></i></button>
+							</div>
+						</div>
+					</div>
+					<div class="panel">
+						<blockquote>
+							<h2>Don't you think that if I were wrong, I'd know it?</h2>
+							<cite>- Sheldon Cooper</cite>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="two column guttered between ss grid">
+			<div class="responsive align-left">
+				<p>RedVentures Home Project for Front End Developer Position Consideration</p>
+			</div>
+			<div class="responsive align-right">
+				<p>Submission by <a href="http://sathrall.com" target="_blank" noreferrer noopener>Scott Thrall</a></p>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript"></script>
+</body>
+</html>

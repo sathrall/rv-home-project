@@ -1,0 +1,11 @@
+//
+// General Footer Decoration
+//
+
+footer {
+	color: $color-light;
+	padding: 0 $size-medium;
+	@include at_device {
+		padding-bottom: $size-medium;
+	}
+}

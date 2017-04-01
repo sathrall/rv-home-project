@@ -1,0 +1,49 @@
+/**
+ *  Base Modal Decoration
+ */
+
+// ----- wrapper decoration
+.modal {
+	opacity: 0;
+	transition: opacity $transition-time $transition-type,
+	            z-index $transition-time $transition-type;
+}
+
+.modal.show {
+	opacity: 1;
+}
+
+// ----- click-trap decoration
+.modal .click-trap {
+	background-color: $color-muted;
+	opacity: 0;
+	transition: all $transition-time $transition-type;
+}
+
+.modal.show .click-trap {
+	opacity: 0.4;
+}
+
+// ----- close button decoration
+.modal .close {
+	font-size: $font-size-h2;
+	opacity: 0;
+	transform: rotate(270deg);
+	transition: opacity   $transition-time $transition-type,
+	            transform $transition-time $transition-type;
+}
+
+.modal.show .close {
+	opacity: 1;
+	transform: rotate(0deg);
+}
+
+// ----- inner decoration
+.modal .inner {
+	//
+}
+
+// ----- content structure
+.modal .inner .content {
+	transition: all $transition-time $transition-type;
+}

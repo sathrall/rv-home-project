@@ -1,0 +1,76 @@
+/**
+ *  General Typography
+ */
+
+// Alignment
+.align-center {
+	text-align: center;
+}
+.align-left {
+	text-align: left;
+
+	&.responsive {
+		@include at_device {
+			text-align: center;
+		}
+	}
+}
+.align-right {
+	text-align: right;
+
+	&.responsive {
+		@include at_device {
+			text-align: center;
+		}
+	}
+}
+
+// Headings
+.headline {
+	@extend %font-heading;
+}
+
+.entry,
+.hero.section,
+.title.section,
+.section > .content {
+	$delta: 1.25;
+	h1.headline, .headline.h1-size { font-size: $font-size-h1 * $delta; }
+	h2.headline, .headline.h2-size { font-size: $font-size-h2 * $delta; }
+	h3.headline, .headline.h3-size { font-size: $font-size-h3 * $delta; }
+	h4.headline, .headline.h4-size { font-size: $font-size-h4 * $delta; }
+	h5.headline, .headline.h5-size { font-size: $font-size-h5 * $delta; }
+	h6.headline, .headline.h6-size { font-size: $font-size-h6 * $delta; }
+
+	.headline {
+		text-align: center;
+	}
+}
+
+// links
+p > a {
+	color: $link-color;
+	position: relative;
+
+	&:after {
+		background-color: $color-light;
+		content: '';
+		height: 1px;
+		left: 50%;
+		position: absolute;
+		top: 110%;
+		transform: translateX(-50%);
+		transition: all 0.22s ease-in-out;
+		width: 100%;
+		z-index: -1;
+	}
+
+
+	&:hover {
+		color: $link-hover-color;
+		&:after {
+			height: 100%;
+			top: 0;
+		}
+	}
+}

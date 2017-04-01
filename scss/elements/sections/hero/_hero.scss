@@ -1,0 +1,40 @@
+/**
+ *  Hero Sections
+ */
+
+.hero.section {
+	@extend %centered-section;
+	@extend %inverted-section;
+	text-align: center;
+}
+
+.video.hero.section {
+	overflow: hidden;
+	position: relative;
+
+	&:before {
+		z-index: 1;
+	}
+
+	.video-wrapper {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 0;
+
+		video {
+			display: block;
+			height: 100%;
+			object-fit: cover;
+			position: static;
+			width: 100%;
+		}
+	}
+
+	.inner {
+		position: relative;
+		z-index: 2;
+	}
+}

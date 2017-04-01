@@ -1,0 +1,18 @@
+/**
+ *  Modal
+ *  Author: Scott Thrall
+ *  Created March 2017
+ *  Last Revision: 2017-03-30
+ *
+ *  Change Log
+ *  2017-03-30:
+ *		* created the basic markup and styles for modals with very simple
+ *		  transitions as the majority of transitions will be taken care of
+ *		  elsewhere.
+ */
+
+@import "structure";
+@import "decoration";
+
+// ----- Sheldon Specific Styles
+@import "sheldon/sheldon.scss";

@@ -1,0 +1,76 @@
+/**************************************************************************
+Responsive Mixins
+Author: S. Thrall
+Created 2015/07/19
+Last Revision 2016/01/31
+
+Change Log:
+2016/01/31
+	* Moved responsive calculations to its own file w/in the core folder
+	* Repaired the min-width variables for the basic responsive mixins
+2015/07/19
+	* Created base column and responsive calculations
+
+**************************************************************************/
+
+// =============================================
+// =====	Responsive Calculations
+// =============================================
+
+$scrollbar_width: 20px;
+
+@function page_width($breakpoint) {
+	@if ($breakpoint == 0) {
+		@return 1400px + $scrollbar_width;
+	} @else if ($breakpoint == 1) {
+		@return 1200px + $scrollbar_width;
+	} @else if ($breakpoint == 2) {
+		@return 960px + $scrollbar_width;
+	} @else if ($breakpoint == 3) {
+		@return 768px + $scrollbar_width;
+	} @else if ($breakpoint == 4) {
+		@return 600px + $scrollbar_width;
+	} @else if ($breakpoint == 5) {
+		@return 480px + $scrollbar_width;
+	} @else if ($breakpoint == 6) {
+		@return 320px + $scrollbar_width;
+	}
+}
+
+// breakpoint count
+$breakpoints: 6;
+
+// standard breakpoints
+$desktop: page_width(2);
+$tablet: page_width(4);
+$mobile: page_width(6);
+
+// per page width mixin
+@mixin at_width($breakpoint) {
+	@if ($breakpoint == 0) {
+		@media only screen and (min-width: page_width(0)) { @content; }
+	} @else if ($breakpoint == 1) {
+		@media only screen and (min-width: page_width(1)) and (max-width: page_width(0)) { @content; }
+	} @else if ($breakpoint == $breakpoints) {
+		@media only screen and (max-width: page_width($breakpoint - 1)) { @content; }
+	} @else {
+		@media only screen and (min-width: page_width($breakpoint)) and (max-width: page_width($breakpoint - 1)) { @content; }
+	}
+}
+
+// per user screen size mixins
+@mixin at_desktop {
+	@media only screen and (min-width: $desktop) { @content; }
+}
+@mixin at_dablet {
+	@media only screen and (min-width: $tablet) { @content; }
+}
+@mixin at_tablet {
+	@media only screen and (min-width: $tablet) and (max-width: $desktop) { @content; }
+}
+@mixin at_device {
+	@media only screen and (max-width: $desktop) { @content; }
+}
+@mixin at_mobile {
+	@media only screen and (max-width: $tablet) { @content; }
+}

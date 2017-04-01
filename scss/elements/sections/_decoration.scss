@@ -1,0 +1,33 @@
+/**
+ *  Section Decoration
+ */
+
+.section {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-size: cover;
+	position: relative;
+}
+
+.section.bg-left {
+	background-position: left center;
+}
+
+.section.bg-right {
+	background-position: right center;
+}
+
+.title.section {
+	padding-top: $size-huge - $size-small;
+	padding-bottom: $size-tiny;
+	text-align: center;
+
+	.headline {
+		margin-bottom: 0;
+	}
+
+	& + .section {
+		padding-top: $size-large;
+	}
+}

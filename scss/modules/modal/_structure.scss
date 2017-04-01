@@ -1,0 +1,73 @@
+/**
+ *  Base Modal Structure
+ */
+
+// ----- wrapper structure
+.modal {
+	bottom: 0;
+	display: block;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100%;
+	visibility: hidden;
+	z-index: -9999;
+}
+
+.modal.show {
+	visibility: visible;
+	z-index: 9999;
+}
+
+// ----- click-trap structure
+.modal .click-trap {
+	bottom: 0;
+	display: block;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+}
+
+// ----- close button structure
+.modal .close {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+// ----- inner structure
+.modal .inner {
+	display: block;
+	left: 50%;
+	max-width: 70rem; // magic number; approximate width of the example
+	position: absolute;
+	top: 50%;
+	transform-origin: 0% -50%;
+	transform: scaleY(0) translate(-50%, -64%);
+	transition: all $transition-time $transition-type;
+	width: 70%;
+	width: 70vw;
+
+	@include at_device {
+		max-width: none;
+	}
+
+	@include at_mobile {
+		width: 80%;
+		width: 80vw;
+	}
+}
+
+.modal.show .inner {
+	transform: scaleY(1) translate(-50%, -50%);
+}
+
+// ----- content structure
+.modal .inner .content {
+	//
+}

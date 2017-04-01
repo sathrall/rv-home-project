@@ -1,0 +1,11 @@
+/**
+ *  Centered Sections
+ */
+
+%centered-section {
+	@extend %vertical-center;
+}
+
+.centered.section {
+	@extend %centered-section;
+}

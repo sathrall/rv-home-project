@@ -1,0 +1,68 @@
+// ----- Structural definitions
+$darken-percentage: 12%; // various things are darkened by this percent to give default styles
+$transition-time: 0.22s; // relatively arbitrary time, just to keep things standardized
+$transition-type: ease-in-out; // relatively arbitrary time, just to keep things standardized
+
+
+// ----- Colors
+$color-light: #fff; // acts as white
+$color-dark: #252525; // acts as black
+$color-muted: #bbb; // acts as grey
+$color-primary: #18a0ff; // light blue
+
+$background-primary: $color-light;
+$text-primary: $color-dark;
+
+$background-secondary: $color-primary;
+$text-secondary: $color-light;
+
+$link-color: $color-light;
+$link-hover-color: $color-primary;
+
+
+// ----- Font Families
+$font-base: Helvetica, Arial, sans-serif; // these are the 'fallback' fonts
+%font-body {
+	font-family: 'Roboto', $font-base;
+}
+%font-italic {
+	font-family: 'Roboto Italic', $font-base;
+	font-style: italic;
+}
+%font-bold {
+	font-family: 'Roboto Bold', $font-base;
+	font-weight: 700;
+}
+%font-heading {
+	font-family: 'Proxima Nova Condensed Semibold', $font-base;
+	font-weight: 700;
+}
+
+
+//
+// Size Variables
+//
+$_size-micro: 3;
+$_size-mini: 5;
+$_size-tiny: 8;
+$_size-small: 13;
+$_size-medium: 21;
+$_size-large: 34;
+$_size-big: 55;
+$_size-huge: 89;
+$_size-massive: 144;
+
+$font-size-base: 16;
+
+$_font-size-h1: $font-size-base * 2.75;  // 44px
+$_font-size-h2: $font-size-base * 1.875; // 30px
+$_font-size-h3: $font-size-base * 1.5;   // 24px
+$_font-size-h4: $font-size-base * 1.25;  // 20px
+$_font-size-h5: $font-size-base * 1.125; // 18px
+$_font-size-h6: $font-size-base * 1.0;   // 16px
+$_font-size-large: $font-size-base * 1.125; // 16px
+$_font-size-main:  $font-size-base * 1.0;   // 16px
+$_font-size-small: $font-size-base * 0.875; // 14px
+
+$base-line-height: 1.625;
+$heading-line-height: 1.2;

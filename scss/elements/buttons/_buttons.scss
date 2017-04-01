@@ -1,0 +1,210 @@
+//
+// Buttons
+//
+//   SCSS markup/documentation is rather long, and hence located at the end of this file
+//
+
+
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 1em;
+	padding: $size-tiny $size-medium;
+	text-transform: uppercase;
+	transition: background-color $transition-time $transition-type, color $transition-time $transition-type, border-color $transition-time $transition-type;
+}
+
+
+// Button colors
+@mixin button_colors( $bg-color: $color-primary, $txt-color: $color-light, $border-color: false,
+					  $bg-hover-color: false,    $txt-hover-color: false,  $border-hover-color: false
+					) {
+	// automatically create non-transparent fallbacks if needed
+	@if (opacity($bg-color) != 1) { background-color: opacify($bg-color, 1); }
+	@if (opacity($txt-color) != 1) { color: opacify($txt-color, 1); }
+
+	background-color: $bg-color;
+	color: $txt-color;
+
+	@if ($border-color) {
+		@if (opacity($border-color) != 1) { border-color: opacify($border-color, 1); }
+		border: solid 2px $border-color;
+	}
+
+	&:hover {
+		@if ($bg-hover-color) {
+			@if (opacity($bg-hover-color) != 1) { background-color: opacify($bg-hover-color, 1); }
+			background-color: $bg-hover-color;
+		}
+		@if ($border-hover-color) {
+			@if (opacity($border-hover-color) != 1) { border-color: opacify($border-hover-color, 1); }
+			border-color: $border-hover-color;
+		}
+		@if ($txt-hover-color) {
+			@if (opacity($txt-hover-color) != 1) { color: opacify($txt-hover-color, 1); }
+			color: $txt-hover-color;
+		}
+	}
+}
+
+
+//
+// Default button is an outlined button with constant text color (either light or dark).
+//
+// Again, by default all buttons are "primary_light" - but (mostly by way of example) within a
+// `.section-inverted` since everything else gets inverted, then so too do the buttons
+//
+@mixin button_primary_light() {
+	@include button_colors($bg-color: rgba($color-light, 0), $txt-color: $color-light,         $border-color: $color-light,
+	                       $bg-hover-color: $color-light,    $txt-hover-color: $color-primary, $border-hover-color: $color-light
+	                       );
+}
+
+@mixin button_primary {
+	@include button_colors($bg-color: rgba($color-light, 0), $txt-color: $color-light,       $border-color: $color-light,
+	                       $bg-hover-color: $color-primary,    $txt-hover-color: $color-light, $border-hover-color: $color-primary
+	                       );
+}
+
+@mixin button_primary_dark() {
+	@include button_colors($bg-color: rgba($color-dark, 0), $txt-color: $color-dark,       $border-color: $color-dark,
+	                       $bg-hover-color: $color-primary,    $txt-hover-color: $color-light, $border-hover-color: $color-primary
+	                       );
+}
+
+@mixin button_close() {
+	@include button_colors($bg-color: transparent,       $txt-color: $color-light,       $border-color: transparent,
+	                       $bg-hover-color: transparent, $txt-hover-color: $color-dark, $border-hover-color: transparent
+	                       );
+}
+
+%button-primary {
+	@include button_primary;
+}
+
+%button-primary-dark {
+	@include button_primary_dark;
+}
+
+%button-primary-light {
+	@include button_primary_light;
+}
+
+%button-close {
+	@include button_close;
+}
+
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button.primary {
+	@extend %button-primary;
+}
+
+button.light,
+.button.light {
+	@extend %button-primary-light;
+}
+
+button.dark,
+.button.dark {
+	@extend %button-primary-dark;
+}
+
+button.close,
+.button.close {
+	@extend %button-close;
+}
+
+
+// Button Sizes
+.button.wide {
+	padding-left: $size-large;
+	padding-right: $size-large;
+}
+.button.massive {
+	font-size: 1.9em;
+	padding: $size-large $size-massive;
+
+	&.wide {
+		padding-left: 1.2 * $size-massive;
+		padding-right: 1.2 * $size-massive;
+	}
+}
+.button.huge {
+	font-size: 1.75em;
+	padding: $size-large $size-huge;
+
+	&.wide {
+		padding-left: $size-massive;
+		padding-right: $size-massive;
+	}
+}
+.button.big {
+	font-size: 1.5em;
+	padding: $size-medium $size-big;
+
+	&.wide {
+		padding-left: $size-huge;
+		padding-right: $size-huge;
+	}
+}
+.button.large {
+	font-size: 1.25em;
+	padding: $size-small $size-large;
+
+	&.wide {
+		padding-left: $size-big;
+		padding-right: $size-big;
+	}
+}
+.button.medium {
+	font-size: 1em;
+	padding: $size-small $size-medium;
+
+	&.wide {
+		padding-left: $size-large;
+		padding-right: $size-large;
+	}
+}
+.button.small {
+	font-size: 0.75em;
+	padding: $size-tiny $size-small;
+
+	&.wide {
+		padding-left: $size-medium;
+		padding-right: $size-medium;
+	}
+}
+.button.tiny {
+	font-size: 0.6em;
+	padding: $size-mini $size-tiny;
+
+	&.wide {
+		padding-left: $size-small;
+		padding-right: $size-small;
+	}
+}
+.button.mini {
+	font-size: 0.5em;
+	padding: $size-mini $size-mini;
+
+	&.wide {
+		padding-left: $size-small;
+		padding-right: $size-small;
+	}
+}
+
+.button.block {
+	display: block;
+	width: 100%;
+}

@@ -1,0 +1,210 @@
+/**
+ *  Sheldon Specific Styles
+ */
+
+.modal {
+	.inner {
+		.likes {
+			position: absolute;
+			right: $size-medium;
+			top: $size-medium;
+			z-index: 4;
+		}
+
+		button#like {
+			background-color: rgba($color-dark, 0.2);
+			border: none;
+			border-radius: $size-medium;
+			font-size: $font-size-small;
+			height: calc((#{$base-line-height} * 1rem) + (#{$size-mini} * 2));
+			overflow: hidden;
+			padding: $size-mini $size-tiny;
+			transition: width ($transition-time * 2.4) $transition-type;
+			width: calc((#{$base-line-height} * 1rem) + (#{$size-tiny} * 2));
+
+			&:hover {
+				background-color: $color-light;
+			}
+
+			&.liked .fa { color: #CD2A39; }
+		}
+
+		.content {
+			@extend %flex;
+			@extend %justify-center;
+			@extend %align-stretch;
+			overflow: hidden;
+			position: relative;
+
+			@include at_mobile {
+				display: block;
+			}
+
+			.image {
+				background-color: #282a37;
+				float: left;
+				flex-basis: 0;
+				min-width: 0;
+				position: relative;
+				transition: $transition-time flex-basis ($transition-time * 2) $transition-type,
+				            $transition-time min-width  ($transition-time * 2) $transition-type;
+				z-index: 0;
+
+				@include at_mobile {
+					width: 100%;
+				}
+
+				&:before {
+					@extend %font-heading;
+					color: $color-light;
+					content: '\201C';
+					display: block;
+					font-size: 25.6rem;
+					left: 50%;
+					opacity: 0;
+					position: absolute;
+					top: 0;
+					transform: translateX(-50%);
+					transition: ($transition-time * 2) opacity ($transition-time * 3) $transition-type;
+					z-index: 5;
+
+					@include at_mobile {
+						font-size: 18rem;
+						left: $size-medium;
+						transform: translateX(0);
+					}
+				}
+
+				&:after {
+					content: '';
+					display: block;
+					opacity: 0;
+					padding-top: 100%;
+					position: relative;
+					visibility: hidden;
+					width: 100%;
+
+					@include at_mobile {
+						padding-top: 64%;
+					}
+				}
+
+				img.tall {
+					display: block;
+					height: auto;
+					left: 0;
+					max-height: none;
+					max-width: none;
+					min-height: 100%;
+					min-width: 170px; // magic number; makes sure that sheldon's face fits
+					opacity: 0.12;
+					position: absolute;
+					top: 0;
+
+					@include at_mobile { display: none; }
+				}
+
+				img.long {
+					display: none;
+					height: auto;
+					left: 0;
+					max-height: none;
+					opacity: 0.24;
+					position: absolute;
+					right: 0;
+					top: 0;
+					width: 100%;
+
+					@include at_mobile { display: block; }
+				}
+
+				.controls {
+					@extend %flex;
+					@extend %justify-space-between;
+					bottom: 0;
+					left: 0;
+					overflow: hidden;
+					padding: $size-medium $size-large;
+					position: absolute;
+					text-align: center;
+					width: 100%;
+					z-index: 5;
+
+					.slide {
+						background-color: transparent;
+						border: none;
+						color: $color-light;
+						font-size: $font-size-h1;
+						padding: 0;
+						transform: scale(1);
+						transition: transform $transition-time $transition-type;
+
+						&:hover {
+							background-color: transparent;
+							border: none;
+							color: $color-light;
+							transform: scale(1.18);
+						}
+					}
+				}
+			}
+		}
+
+		.panel {
+			position: relative;
+			z-index: 1;
+
+			blockquote {
+				margin: 0;
+				margin-right: 25%;
+				opacity: 0;
+				padding-left: $size-small;
+				transition: opacity ($transition-time * 3) $transition-type;
+
+				@include at_mobile {
+					margin-right: 0;
+					padding-right: $size-small;
+				}
+
+				&:before {
+					display: none;
+				}
+
+				h2 {
+					@extend %font-heading;
+					font-size: 7.2rem;
+					line-height: 0.9em;
+					text-transform: uppercase;
+
+					@include at_tablet {
+						font-size: 5.5rem;
+					}
+
+					@include at_width(4) {
+						font-size: 5rem;
+					}
+
+					@include at_mobile {
+						font-size: $font-size-h2;
+					}
+				}
+
+				cite {
+					@extend %font-bold;
+					font-style: normal;
+					text-align: left;
+				}
+			}
+		}
+	}
+}
+
+.modal.show .inner {
+	button#like { width: calc((#{$base-line-height} * 1rem) * 4); }
+	.content .image {
+		flex-basis: 25%;
+		min-width: 170px; // magic number; makes sure that sheldon's face fits
+		&:before { opacity: 0.1; }
+	}
+	.panel blockquote { opacity: 1; }
+}
